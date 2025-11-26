@@ -112,7 +112,7 @@ export default function TokenCounterSettings({ config, setConfig, expanded, onTo
             🎫
           </div>
           <div>
-            <h3 style={{ fontWeight: "600", color: "white", fontSize: "15px" }}>Token & Counter</h3>
+            <h3 style={{ fontWeight: "600", color: "white", fontSize: "15px",textAlign: "start" }}>Token & Counter</h3>
             <p style={{ fontSize: "12px", color: "#999999", marginTop: "4px" }}>
               Set token value, counter number, and colors
             </p>

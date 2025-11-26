@@ -13,13 +13,16 @@ export default function MatrixDisplay({ config }) {
   };
 
   return (
-    <div className="space-y-8 p-4 md:p-8 bg-black/90 min-h-screen">
+    <div className="space-y-6 p-4 md:p-8 bg-black/90 min-h-screen">
       {/* Welcome Text */}
       {config.welcomeText && (
-        <div className="rounded-3xl p-8 shadow-2xl border-2 border-orange-500 bg-gradient-to-tr from-gray-900 via-gray-800 to-gray-950 transform hover:scale-105 transition-transform duration-300">
-          <div className="p-8 rounded-2xl border border-gray-700 bg-black/60 backdrop-blur-sm">
+        <div className="rounded-3xl p-4 md:p-8 shadow-2xl border-2 border-orange-500 
+          bg-gradient-to-tr from-gray-900 via-gray-800 to-gray-950 
+          transform hover:scale-105 transition-transform duration-300">
+          
+          <div className="p-4 md:p-8 rounded-2xl border border-gray-700 bg-black/60 backdrop-blur-sm">
             <p
-              className="text-6xl md:text-7xl font-extrabold tracking-wider text-center neon-text"
+              className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-wide text-center neon-text break-words"
               style={{
                 color: config.welcomeColor || "#f59e0b",
                 fontFamily: getFontStyle(config.fontFamily),
@@ -33,11 +36,17 @@ export default function MatrixDisplay({ config }) {
 
       {/* Secondary Text */}
       {config.secondaryEnabled && config.secondaryText && (
-        <div className="rounded-3xl p-6 shadow-2xl border-2 border-green-500 bg-gradient-to-tr from-gray-900 via-gray-800 to-gray-950 transform hover:scale-105 transition-transform duration-300">
-          <p className="text-sm font-bold mb-4 text-green-300 tracking-wide">Secondary Text</p>
-          <div className="p-6 rounded-2xl border border-gray-700 bg-black/60 backdrop-blur-sm">
+        <div className="rounded-3xl p-4 md:p-6 shadow-2xl border-2 border-green-500 
+          bg-gradient-to-tr from-gray-900 via-gray-800 to-gray-950 
+          transform hover:scale-105 transition-transform duration-300">
+          
+          <p className="text-xs sm:text-sm font-bold mb-3 text-green-300 tracking-wide">
+            Secondary Text
+          </p>
+
+          <div className="p-4 md:p-6 rounded-2xl border border-gray-700 bg-black/60 backdrop-blur-sm">
             <p
-              className="text-5xl md:text-6xl font-bold tracking-wider text-center neon-text"
+              className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-wide text-center neon-text break-words"
               style={{
                 color: config.secondaryColor || "#4ade80",
                 fontFamily: getFontStyle(config.fontFamily),
@@ -49,19 +58,28 @@ export default function MatrixDisplay({ config }) {
         </div>
       )}
 
-      {/* Token & Counter */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Token & Counter (Responsive Grid) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
         {config.tokenValue && (
-          <div className="border rounded-2xl p-6 shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 bg-black/70 border-gray-600">
-            <p className="text-sm mb-3 font-medium text-gray-400">Token</p>
+          <div className="border rounded-2xl p-4 md:p-6 shadow-lg hover:shadow-2xl 
+            transform hover:scale-105 transition-all duration-300 
+            bg-black/70 border-gray-600">
+            
+            <p className="text-xs sm:text-sm mb-2 text-gray-400">Token</p>
+
             <div
-              className="p-6 rounded-2xl text-center border-2 backdrop-blur-sm"
+              className="p-4 md:p-6 rounded-2xl text-center border-2 backdrop-blur-sm"
               style={{
                 borderColor: config.boxColor || "#22c55e",
-                backgroundColor: config.boxColor ? config.boxColor + "20" : "#22c55e20",
+                backgroundColor: config.boxColor
+                  ? config.boxColor + "20"
+                  : "#22c55e20",
               }}
             >
-              <p className="text-4xl md:text-5xl font-mono font-bold" style={{ color: config.tokenColor || "#22c55e" }}>
+              <p
+                className="text-3xl sm:text-4xl md:text-5xl font-mono font-bold"
+                style={{ color: config.tokenColor || "#22c55e" }}
+              >
                 {config.tokenValue}
               </p>
             </div>
@@ -69,16 +87,25 @@ export default function MatrixDisplay({ config }) {
         )}
 
         {config.counterValue && (
-          <div className="border rounded-2xl p-6 shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 bg-black/70 border-gray-600">
-            <p className="text-sm mb-3 font-medium text-gray-400">Counter</p>
+          <div className="border rounded-2xl p-4 md:p-6 shadow-lg hover:shadow-2xl 
+            transform hover:scale-105 transition-all duration-300 
+            bg-black/70 border-gray-600">
+
+            <p className="text-xs sm:text-sm mb-2 text-gray-400">Counter</p>
+
             <div
-              className="p-6 rounded-2xl text-center border-2 backdrop-blur-sm"
+              className="p-4 md:p-6 rounded-2xl text-center border-2 backdrop-blur-sm"
               style={{
                 borderColor: config.boxColor || "#3b82f6",
-                backgroundColor: config.boxColor ? config.boxColor + "20" : "#3b82f620",
+                backgroundColor: config.boxColor
+                  ? config.boxColor + "20"
+                  : "#3b82f620",
               }}
             >
-              <p className="text-4xl md:text-5xl font-mono font-bold" style={{ color: config.counterColor || "#3b82f6" }}>
+              <p
+                className="text-3xl sm:text-4xl md:text-5xl font-mono font-bold"
+                style={{ color: config.counterColor || "#3b82f6" }}
+              >
                 {config.counterValue}
               </p>
             </div>
@@ -87,12 +114,17 @@ export default function MatrixDisplay({ config }) {
       </div>
 
       {/* Configuration Summary */}
-      <div className="border rounded-3xl p-6 shadow-lg bg-black/60 border-gray-600 backdrop-blur-sm">
-        <p className="text-sm mb-4 font-bold text-gray-400 tracking-wide">Configuration Summary</p>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+      <div className="border rounded-3xl p-4 md:p-6 shadow-lg bg-black/60 
+        border-gray-600 backdrop-blur-sm">
+        
+        <p className="text-xs sm:text-sm mb-3 font-bold text-gray-400 tracking-wide">
+          Configuration Summary
+        </p>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-xs sm:text-sm">
           <div>
             <p className="text-gray-500">Display ID</p>
-            <p className="font-bold text-white">{config.displayId || "Not set"}</p>
+            <p className="font-bold text-white break-words">{config.displayId || "Not set"}</p>
           </div>
           <div>
             <p className="text-gray-500">Baud Rate</p>
